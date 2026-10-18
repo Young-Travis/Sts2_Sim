@@ -1,14 +1,21 @@
+import random
+
 class Player:
     def __init__(self, max_health):
         self.name = "No Player Selected"
         self.max_health = max_health
         self.current_health = self.max_health
+        self.dead = False
         self.block = 0
         self.stars = 0
         self.orb_slots = 0
         self.minion_health = 0
+        self.card_draw = 5
         self.orbs = []
         self.deck = []
+        self.battle_deck = []
+        self.discard_pile = []
+        self.exhaust_pile = []
         self.relics = []
         self.afflictions = []
 
@@ -20,6 +27,13 @@ class Player:
 
     def alphabetical_sort_deck(self):
         self.deck.sort(key=lambda card: card.name)
+
+    def shuffle_deck(self):
+        pass
+        #shuffled_indexes = random.sample(range(len(self.battle_deck)), len(arr))
+
+        #for idx in shuffled_indexes:
+            #self.battle_deck = 
 
     def add_card(self, card):
         self.deck.append(card)
@@ -46,6 +60,7 @@ class Player:
         if self.current_health < 0:
             self.current_health = 0
             print(f"{self.name} has died")
+            self.dead = True
         self.print_health()
 
     def gain_max_health(self, amount):
@@ -89,3 +104,19 @@ class Player:
         if any(isinstance(buff, type(buff)) for item in afflictions):
             print(f"{self.name} already has {buff.__class__.__name__}")
         
+    def is_dead(self):
+        return self.dead
+
+    def draw_hand(self):
+        pass
+    
+    def play_card(self):
+        pass
+
+    def take_turn(self, enemy):
+        for orb in self.orbs:
+            orb.on_turn_start()
+        for relic in self.relics:
+            relic.on_turn_start()
+        for affliction in self.afflictions:
+            affliction.on_turn_start()

@@ -1,4 +1,4 @@
-from Card_Class import Card
+from Cards.Card_Class import Card
 from Orbs.Orbs import Lightning_Orb, Frost_Orb, Dark_Orb, Plasma_Orb
 
 class Strike_Defect(Card):
@@ -39,3 +39,7 @@ class Dualcast(Card):
 
     def On_Play(self):
         print("Dualcast played! Evoke next orb twice.")
+    
+    def On_Upgrade(self):
+        super().On_Upgrade()
+        self.energy_cost = 0

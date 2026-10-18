@@ -1,4 +1,4 @@
-from Base_Char import Player
+from Characters.Base_Char import Player
 import Cards.Silent_Cards as Cards
 
 class Silent(Player):

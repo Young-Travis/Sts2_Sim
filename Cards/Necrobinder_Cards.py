@@ -1,4 +1,4 @@
-from Card_Class import Card
+from Cards.Card_Class import Card
 
 class Strike_Necro(Card):
     def __init__(self):

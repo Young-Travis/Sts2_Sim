@@ -1,4 +1,4 @@
-from Base_Char import Player
+from Characters.Base_Char import Player
 import Cards.Defect_Cards as Cards
 import Relics.Relics as relics
 

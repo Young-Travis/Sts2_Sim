@@ -1,4 +1,4 @@
-from Base_Char import Player
+from Characters.Base_Char import Player
 import Cards.Regent_Cards as Cards
 
 class Regent(Player):
